@@ -3,54 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/style1.css"/>
 </head>
 <body>
-    <form action="./input.html">
-        <div class="parent">
-            <form action="./input.html">
-
-
-
-            </form>
-            <div>
-                <h1>STUDENT LOGIN</h1>
-                
-            </div>
-          
-            <div class="container">
-    
-                <div>
-                    <label for="username">USERNAME:</label>
-                <input type="email">
+    <div class="container">
+        <h1 class="heading">WELCOME TO OUR WEBSITE</h1>
+        <p>Our platform provides a streamlined interface for students to manage and access their essential information...</p>
+        <img src="/students.jpg" alt="student">
         
+        <!-- Signup Form -->
+        <form id="signupForm" autocomplete="off">
+            <!-- Dummy hidden fields to confuse autofill -->
+            <input type="text" name="fakeusernameremembered" style="display:none">
+            <input type="password" name="fakepasswordremembered" style="display:none">
+
+            <div class="login">
+                <div class="username">
+                    <h1 class="title">SIGNUP SYSTEM</h1>
+                    <label for="new_username">USERNAME:</label>
+                    <input name="new_username" id="new_username" type="email" required class="input" autocomplete="off">
                 </div>
-        
-                <div>
-                    <label for="username">PASSWORD:</label>
-                    <input type="password">
-        
-        
+                <div class="password">
+                    <label for="new_password">PASSWORD:</label>
+                    <input name="new_password" id="new_password" type="password" required minlength="6" class="input" autocomplete="off">
                 </div>
-                
-               <div>
-                <button>SUBMIT</button>
-        
-        
-               </div>
-               <h4>DON'T HAVE AN ACCOUNT <a href="./signup.html">SIGNUP</a></h4>
-        
-    
+                <div class="button">  
+                    <button type="submit" id="submit">SIGNUP</button>
+                </div>
             </div>
+        </form>
 
+        <div class="connect">
+            <h1>YOU HAVE AN ACCOUNT <a href="/index2.html" class="link">LOGIN</a></h1>
         </div>
-       
-       
+    </div>
 
-       
+    <!-- Firebase and Signup Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="./register.js" defer></script>
 
-    </form>
-    
-</body>
-</html>

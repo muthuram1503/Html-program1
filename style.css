@@ -1,47 +1,140 @@
-/**body
-{
-    background-color:azure;
-    height: 100%;
+body {
+    background-image: url(./login.jpg);
     display: flex;
-
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-left: 1000px;
+    padding-top: 200px;
     position: fixed;
-    
-   
-    
-
-}
-html
-{
-    height: 100%;
 }
 
-.parent
-{
+.heading {
+    position: relative;
+    right: 900px;
+    color: white;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+    font-size: 50px;
+    white-space: nowrap;
+}
+
+p {
+    position: relative;
+    right: 900px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+img {
+    position: relative;
+    right: 900px;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    top: 25px;
+}
+
+.login {
+    border: 2px solid black;
     display: flex;
-
     flex-direction: column;
-    justify-content: center;
+    height: 400px;
+    width: 300px;
+    background-image: url(./back.jpg);
     align-items: center;
-    width:100%;
-    height: 100%;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    opacity: 1;
+    position: relative;
+    bottom: 400px;
+    left: 120px;
 }
-    
-   
-.container
+
+.username{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding-bottom: 30px;
+    padding-left: 25px;
+}
+
+.password
 {
-    border:2px solid black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding-bottom: 30px
+    
+}
+
+.regno
+{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    padding-bottom: 30px
+}
+
+#new_username, #new_password {
+    border-radius: 10px;
+    background-color: slategrey;
+    border: 2px solid white;
+    height: 20px;
+    width: 150px;
+    text-align: center;
+    text-overflow: hidden;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-style: oblique;
+    
+    font-weight: 800;
+}
+
+.title {
+    color: white;
+    text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 900;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+    margin-right: 25px;
+    white-space: nowrap;
     
-    width:400px;
+  
+}
+
+button {
     border-radius: 10px;
-    height: 300px;
-    
-    
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    text-overflow: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    font-weight: 900;
+    background-color: white;
+    text-decoration: none;
+}
 
+.connect {
+    position: relative;
+    top: 100px;
+    text-wrap: nowrap;
+    color: white;
+    font-size: 10px;
+}
 
+.link {
+    font-family: sans-serif;
+    color: yellow;
+}
 
-}***/
+.connect a {
+    padding-left: 10px;
+}

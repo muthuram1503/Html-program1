@@ -1,0 +1,341 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body class="control">
+    <form action="" class="project" autocomplete="off">
+        <div class="image">
+            <img src="./student1.avif" alt="">
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>STUDENT DETAILS</h1>
+            </div>
+            <p id="fillup"></p> 
+            <div class="reg">
+                <label for="reg">REGNO:</label>
+                <input name="reg" id="reg" required maxlength="12"> 
+            </div>
+            <div class="name">
+                <label for="name">NAME:</label>
+                <input name="name" id="name" required>
+            </div>
+            <div class="date">
+                <label for="date">BIRTHDATE:</label>
+                <input name="date" id="date" type="date" required>
+            </div>
+            <div class="dept">
+                <label for="dept">DEPT:</label>
+                <input name="dept" id="dept" required>
+            </div>
+           
+            <div class="gender">
+                <label for="male">GENDER:</label>
+                <input name="gender" id="male" type="radio" value="Male" required>
+                <label for="male">MALE</label>
+
+                <input name="gender" id="female" type="radio" value="Female" required>
+                <label for="female">FEMALE</label>
+            </div>
+            <div class="button">
+                <button id="retrievebtn">SELECT</button>
+                <button id="updatebtn">UPDATE</button>
+                <button id="deletebtn">DELETE</button>
+            </div>
+        </div>
+
+        <script type="module">
+                function getParameterByName(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            // Get the 'regno' parameter from the URL
+            var registerNumber = getParameterByName('regno');
+            // Function to get the URL parameter by name
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+            import { getDatabase, ref, child, get, set, update, remove} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";           // Your web app's Firebase configuration
+            const firebaseConfig = 
+            {
+              apiKey: "AIzaSyCGeb4fW6r3hLhPKuBjKFPq9g7z_h8WN_M",
+              authDomain: "student-details-c241f.firebaseapp.com",
+              databaseURL: "https://student-details-c241f-default-rtdb.firebaseio.com",
+              projectId: "student-details-c241f",
+              storageBucket: "student-details-c241f.appspot.com",
+              messagingSenderId: "743466822654",
+              appId: "1:743466822654:web:015bca7d0d821e826a6eaf"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase();
+            document.getElementById("reg").value = registerNumber;
+            
+
+            let reginp =  document.getElementById("reg");
+            let nameinp = document.getElementById("name");
+            let dateinp = document.getElementById("date");
+            let deptinp = document.getElementById("dept");
+
+
+            
+                                   
+            function retdata(event) 
+            {
+                event.preventDefault(); // Prevent form submission
+
+                const dbref = ref(db);
+                get(child(dbref, 'students/' + reginp.value))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        nameinp.value = snapshot.val().nameofstudent;
+                        dateinp.value = snapshot.val().dateofbirth;
+                        deptinp.value = snapshot.val().department;
+                        document.querySelector(`input[name="gender"][value="${snapshot.val().gender}"]`).checked = true;
+                    } 
+                    else 
+                    {
+                        alert("Student does not exist");
+                    }
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+          
+          
+
+            function updatedata(event) 
+            {
+                event.preventDefault(); // Prevent form submission
+
+                let genderinp = document.querySelector('input[name="gender"]:checked').value;
+
+                update(ref(db, 'students/' + reginp.value), {
+                    nameofstudent: nameinp.value,
+                    dateofbirth: dateinp.value,
+                    department: deptinp.value,
+                    gender: genderinp
+                })
+                .then(() => 
+                {
+                    alert("Data updated successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+            function deletedata(event) 
+            {
+                event.preventDefault(); // Prevent form submission
+
+                remove(ref(db, 'students/' + reginp.value))
+                .then(() => {
+                    alert("Data deleted successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+           
+      
+            document.getElementById("retrievebtn").addEventListener("click",retdata);
+            document.getElementById("updatebtn").addEventListener("click",updatedata);
+            document.getElementById("deletebtn").addEventListener("click",deletedata);
+        
+
+         
+
+            // Set the value of the input field (ensure the correct ID is used)
+           
+            
+
+
+
+              // Import the functions you need from the SDKs you need
+           
+        </script>
+    </form>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body class="control">
+    <form action="" class="project" autocomplete="off">
+        <div class="image">
+            <img src="./student1.avif" alt="Student Image">
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>STUDENT DETAILS</h1>
+            </div>
+       
+            <div class="reg">
+                <label for="reg">REGNO:</label>
+                <input name="reg" id="reg" required maxlength="12"> <!-- Set the input value here -->
+            </div>
+            <div class="name">
+                <label for="name">NAME:</label>
+                <input name="name" id="name" required>
+            </div>
+            <div class="date">
+                <label for="date">BIRTHDATE:</label>
+                <input name="date" id="date" type="date" required>
+            </div>
+            <div class="dept">
+                <label for="dept">DEPT:</label>
+                <input name="dept" id="dept" required>
+            </div>
+            <div class="gender">
+                <label for="male">GENDER:</label>
+                <input name="gender" id="male" type="radio" value="Male" required>
+                <label for="male">MALE</label>
+                <input name="gender" id="female" type="radio" value="Female" required>
+                <label for="female">FEMALE</label>
+            </div>
+            <div class="button">
+                <button id="retrievebtn">SELECT</button>
+                <button id="updatebtn">UPDATE</button>
+                <button id="deletebtn">DELETE</button>
+            </div>
+        </div>
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+            import { getDatabase, ref, child, get, update, remove } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
+
+            // Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyCGeb4fW6r3hLhPKuBjKFPq9g7z_h8WN_M",
+                authDomain: "student-details-c241f.firebaseapp.com",
+                databaseURL: "https://student-details-c241f-default-rtdb.firebaseio.com",
+                projectId: "student-details-c241f",
+                storageBucket: "student-details-c241f.appspot.com",
+                messagingSenderId: "743466822654",
+                appId: "1:743466822654:web:015bca7d0d821e826a6eaf"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
+
+            // Function to get the URL parameter by name
+            function getParameterByName(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            // Get the 'regno' parameter from the URL
+            var registerNumber = getParameterByName('regno');
+
+            // Display and set the registration number
+           
+            document.getElementById("reg").value = registerNumber;
+
+            let reginp = document.getElementById("reg");
+            let nameinp = document.getElementById("name");
+            let dateinp = document.getElementById("date");
+            let deptinp = document.getElementById("dept");
+
+            // Function to fetch data
+            function retdata(event) {
+                event.preventDefault(); // Prevent form submission
+
+                const dbref = ref(db);
+                get(child(dbref, 'students/' + reginp.value))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        nameinp.value = snapshot.val().nameofstudent;
+                        dateinp.value = snapshot.val().dateofbirth;
+                        deptinp.value = snapshot.val().department;
+                        document.querySelector(`input[name="gender"][value="${snapshot.val().gender}"]`).checked = true;
+                    } else {
+                        alert("Student does not exist");
+                    }
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+            // Function to update data
+            function updatedata(event) {
+                event.preventDefault(); // Prevent form submission
+
+                let genderinp = document.querySelector('input[name="gender"]:checked').value;
+
+                update(ref(db, 'students/' + reginp.value), {
+                    nameofstudent: nameinp.value,
+                    dateofbirth: dateinp.value,
+                    department: deptinp.value,
+                    gender: genderinp
+                })
+                .then(() => {
+                    alert("Data updated successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+            // Function to delete data
+            function deletedata(event) {
+                event.preventDefault(); // Prevent form submission
+
+                remove(ref(db, 'students/' + reginp.value))
+                .then(() => {
+                    alert("Data deleted successfully");
+                })
+                .catch((error) => {
+                    alert("Unsuccessful");
+                    console.log(error);
+                });
+            }
+
+            // Add event listeners
+            document.getElementById("retrievebtn").addEventListener("click", retdata);
+            document.getElementById("updatebtn").addEventListener("click", updatedata);
+            document.getElementById("deletebtn").addEventListener("click", deletedata);
+
+            // Automatically click the "SELECT" button if the registration number is valid
+            document.addEventListener("DOMContentLoaded", function() {
+                if (registerNumber) {
+                    // Validate the registration number (length check)
+                    if (registerNumber.length === 12) {
+                        // Simulate click on the "SELECT" button
+                        document.getElementById("retrievebtn").click();
+                    } else {
+                        console.log("Invalid registration number length.");
+                    }
+                }
+            });
+        </script>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+          

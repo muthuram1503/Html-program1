@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="redirectToPage2(event)">
+            <h1 class="heading">WELCOME TO OUR WEBSITE</h1>
+            <p>Our platform provides a streamlined interface for students to manage and access their essential information...</p>
+            <img src="/students.jpg" alt="student">
+            <div class="login">
+                <div class="username">
+                    <h1 class="title">LOGIN SYSTEM</h1>
+                    <label for="new_username">USERNAME:</label>
+                    <input name="new_username" id="new_username" type="email" required class="input">
+                </div>
+                <div class="password">
+                    <label for="new_password">PASSWORD:</label>
+                    <input name="new_password" id="new_password" type="password" required minlength="6" class="input">
+                </div>
+              
+                <div class="button">
+                    <button type="submit" id="submit">LOGIN</button>
+                </div>
+            </div>
+        </form>
+        <div class="connect">
+            <h1>YOU HAVE NOT ACCOUNT <a href="/index2.html" class="link">SIGNUP</a></h1>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function redirectToPage2(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            // Get the user input from the input field
+            var registerNumber = document.getElementById("regno").value;
+
+            // Redirect to result.html with the register number as a query parameter
+            window.location.href = "result.html?regno=" + encodeURIComponent(registerNumber);
+        }
+    </script>
+</body>
+</html>
+
+
